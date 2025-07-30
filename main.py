@@ -223,7 +223,7 @@ def save_generated_content(
         daily_index = {
             "date": date_str,
             "processed_at": today.isoformat(),
-            "data_path": str(raw_data_file.relative_to(daily_dir)),
+            "data_path": str(raw_data_file.relative_to(daily_dir)).replace('\\', '/'),
             "total_articles": len(all_articles),
             "categories": {
                 category: len(articles)
