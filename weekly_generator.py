@@ -66,7 +66,8 @@ def load_daily_data(base_dir: str, days: int = 7) -> List[Dict]:
                 index_data = json.load(f)
             
             # 記事データファイルを読み込み
-            data_path = daily_dir / index_data["data_path"]
+            data_path_str = index_data["data_path"].replace('\\', '/')
+            data_path = daily_dir / data_path_str
             if not data_path.exists():
                 logger.warning(f"記事データファイルが見つかりません: {data_path}")
                 continue
