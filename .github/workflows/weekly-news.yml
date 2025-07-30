@@ -56,6 +56,7 @@ jobs:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         RSS_FEEDS: ${{ secrets.RSS_FEEDS }}
         KEYWORDS: ${{ secrets.KEYWORDS }}
+        TEAM_WEBHOOK_URL: ${{ secrets.TEAM_WEBHOOK_URL }} 
       run: |
         DAYS="${{ github.event.inputs.days || '7' }}"
         echo "📊 過去${DAYS}日分のデータから週間ニュースを生成します"
