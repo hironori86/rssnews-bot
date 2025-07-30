@@ -3,7 +3,7 @@ name: Weekly DX News Summary
 on:
   # 毎週日曜日の夜10時（JST）に実行 = UTC 13時（日曜日）
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '30 1 * * *'
   
   # 手動実行も可能
   workflow_dispatch:
