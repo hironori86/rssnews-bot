@@ -1,0 +1,73 @@
+{
+  "generated_at": "2025-07-30T06:14:11.959607",
+  "total_articles": 22,
+  "total_clusters": 22,
+  "tweets_count": 1,
+  "notes_count": 1,
+  "tweets": [
+    {
+      "index": 1,
+      "content": "🚀今週のDXニュース！📈 2025年7月23日〜30日の注目トピックをお届けします！\n\n🔍「Mixture-of-recursions」でインフェレンスが2倍速に！実装方法も解説。\n🤖AnthropicがAIのミスアライメントをテストする「監査エージェント」を発表。\n🌞オープンソースのQwen3-235B-A22B-Thinking-2507がOpenAIやGeminiを上回る！\n\n毎週の最新情報を見逃さないために、詳細はリンク先でチェック！🔗 #DX週報 #AIニュース",
+      "length": 238
+    }
+  ],
+  "notes": [
+    {
+      "index": 1,
+      "title": "今週のDXニュースまとめ(2025/07/23〜2025/07/30)",
+      "length": 1381
+    }
+  ],
+  "clusters": [
+    {
+      "cluster_index": 1,
+      "articles_count": 1,
+      "main_article": {
+        "title": "OpenAI launches Study Mode in ChatGPT",
+        "link": "https://techcrunch.com/2025/07/29/openai-launches-study-mode-in-chatgpt/",
+        "summary": "OpenAIの「スタディモード」は、学生が単に答えを得るのではなく、自らの批判的思考能力を育むことを目的としています。この機能は、学習者が問題を深く考察し、理解を深める手助けをすることで、より効果的な学びを促進します。"
+      }
+    },
+    {
+      "cluster_index": 2,
+      "articles_count": 1,
+      "main_article": {
+        "title": "Chinese universities want students to use more AI, not less",
+        "link": "https://www.technologyreview.com/2025/07/28/1120747/chinese-universities-ai-use/",
+        "summary": "ロレイン・ハーさん（24歳）は、2年前に課題にAIを使用しないよう指示されていました。当時、学生たちはChatGPTの国による制限を回避するために、中古市場からミラーサイト版を購入して利用していました。この使用は一般的でしたが、許容されることはあっても、しばしば批判の対象となっていました。"
+      }
+    },
+    {
+      "cluster_index": 3,
+      "articles_count": 1,
+      "main_article": {
+        "title": "ChatGPT just got smarter: OpenAI’s Study Mode helps students learn step-by-step",
+        "link": "https://venturebeat.com/ai/chatgpt-just-got-smarter-openais-study-mode-helps-students-learn-step-by-step/",
+        "summary": "OpenAIは「ChatGPT Study Mode」を発表しました。この新機能により、AIは単なる回答エンジンから、学生が問題を段階的に解決するのを導くソクラテス式のチューターへと変わります。直接的な解答を提供するのではなく、学習者が自ら考える手助けをすることを目的としています。"
+      }
+    },
+    {
+      "cluster_index": 4,
+      "articles_count": 1,
+      "main_article": {
+        "title": "Anthropic throttles Claude rate limits, devs call foul",
+        "link": "https://venturebeat.com/ai/anthropic-throttles-claude-rate-limits-devs-call-foul/",
+        "summary": "Anthropicは、Claude Codeを24時間稼働させるユーザーを非難し、一部のClaudeユーザーに対して週ごとの利用制限を導入しました。この措置に対して、ソーシャルメディア上で反発の声が上がっています。"
+      }
+    },
+    {
+      "cluster_index": 5,
+      "articles_count": 1,
+      "main_article": {
+        "title": "New AI architecture delivers 100x faster reasoning than LLMs with just 1,000 training examples",
+        "link": "https://venturebeat.com/ai/new-ai-architecture-delivers-100x-faster-reasoning-than-llms-with-just-1000-training-examples/",
+        "summary": "階層的推論モデル（HRM）は、複雑な推論タスクに対応しつつ、大規模AIモデルよりも小型で高速、かつデータ効率が高いという特長を持っています。"
+      }
+    }
+  ],
+  "categorized": {
+    "最新技術動向": 7,
+    "導入・活用事例": 13,
+    "その他": 2
+  }
+}

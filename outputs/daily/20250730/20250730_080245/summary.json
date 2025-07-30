@@ -1,0 +1,75 @@
+{
+  "type": "daily",
+  "date": "20250730",
+  "generated_at": "2025-07-30T08:02:45.139216",
+  "total_articles": 14,
+  "total_clusters": 14,
+  "tweets_count": 1,
+  "notes_count": 1,
+  "tweets": [
+    {
+      "index": 1,
+      "content": "📢今日のDXニュース！📊 イトーキと松尾研究所がマルチモーダルデータ分析による生産性可視化で共同研究を開始！さらに、双日テックイノベーションがオンプレミス型生成AI基盤パッケージを販売開始しました。DXの進化は止まりません！🌟 毎日チェックして最新情報をキャッチ！詳細はリンク先で確認してね。🔗 #DX日報 #AIニュース",
+      "length": 161
+    }
+  ],
+  "notes": [
+    {
+      "index": 1,
+      "title": "今日のDXニュースまとめ(2025/07/30)",
+      "length": 2843
+    }
+  ],
+  "clusters": [
+    {
+      "cluster_index": 1,
+      "articles_count": 1,
+      "main_article": {
+        "title": "Nvidia AI chip challenger Groq said to be nearing new fundraising at $6B valuation",
+        "link": "https://techcrunch.com/2025/07/29/nvidia-ai-chip-challenger-groq-said-to-be-nearing-new-fundraising-at-6b-valuation/",
+        "summary": "AIチップスタートアップのGroqが、約60億ドルの評価額で600百万ドルの資金調達を進めていると、ブルームバーグが報じています。ただし、契約はまだ最終的ではなく、条件が変更される可能性があります。"
+      }
+    },
+    {
+      "cluster_index": 2,
+      "articles_count": 1,
+      "main_article": {
+        "title": "Anthropic reportedly nears $170B valuation with potential $5B round",
+        "link": "https://techcrunch.com/2025/07/29/anthropic-reportedly-nears-170b-valuation-with-potential-5b-round/",
+        "summary": "新たな資金調達ラウンドは、Iconiq Capitalが主導しており、共同リード投資家が参加する可能性もある。"
+      }
+    },
+    {
+      "cluster_index": 3,
+      "articles_count": 1,
+      "main_article": {
+        "title": "OpenAI launches Study Mode in ChatGPT",
+        "link": "https://techcrunch.com/2025/07/29/openai-launches-study-mode-in-chatgpt/",
+        "summary": "OpenAIの「スタディモード」は、学生が単に答えを得るのではなく、自らの批判的思考能力を育むことを目的としています。この機能は、学習者が問題を考え、解決策を見つける過程を重視し、より深い理解を促進することを目指しています。"
+      }
+    },
+    {
+      "cluster_index": 4,
+      "articles_count": 1,
+      "main_article": {
+        "title": "OpenAI is launching a version of ChatGPT for college students",
+        "link": "https://www.technologyreview.com/2025/07/29/1120801/openai-is-launching-a-version-of-chatgpt-for-college-students/",
+        "summary": "OpenAIは、大学生向けの「Study Mode」を発表しました。この新しいChatGPTは、単なる情報検索ツールではなく、常に利用可能な友好的なチューターとして機能することを目指しています。これは、9月の新学期に向けてAIを教育現場により浸透させるための取り組みの一環です。デモンストレーションも行われる予定です。"
+      }
+    },
+    {
+      "cluster_index": 5,
+      "articles_count": 1,
+      "main_article": {
+        "title": "Positron believes it has found the secret to take on Nvidia in AI inference chips — here’s how it could benefit enterprises",
+        "link": "https://venturebeat.com/ai/positron-believes-it-has-found-the-secret-to-take-on-nvidia-in-ai-inference-chips-heres-how-it-could-benefit-enterprises/",
+        "summary": "その会社の初代チップは、米国のインテルの施設で製造され、最終的なサーバーの組み立てと統合が行われました。"
+      }
+    }
+  ],
+  "categorized": {
+    "最新技術動向": 7,
+    "導入・活用事例": 2,
+    "その他": 5
+  }
+}

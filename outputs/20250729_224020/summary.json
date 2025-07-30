@@ -1,0 +1,108 @@
+{
+  "generated_at": "2025-07-29T22:40:20.863105",
+  "total_articles": 23,
+  "total_clusters": 23,
+  "tweets_count": 5,
+  "notes_count": 5,
+  "tweets": [
+    {
+      "index": 1,
+      "content": "🚀驚愕のニュース！新しいAIアーキテクチャ「Mixture-of-Recursions (MoR)」が登場！なんと、推論速度が2倍に！💡この革新で、LLMのコストとメモリ使用量を大幅削減可能に！実装方法も解説中！あなたのAIプロジェクトを加速させるチャンス🌟詳細はここでチェック👉 [リンク] #AI #テクノロジー #革新",
+      "length": 162
+    },
+    {
+      "index": 2,
+      "content": "🚀 ChatGPTがあなたの「自分専用の秘書」に！✨\n\n毎回同じ指示を打つ手間、もう不要です！🔑「カスタム指示」機能を使えば、あなた専用のAIが育ち、タスクをスイスイこなしてくれます。実際に「神ワザ9選」で多くのユーザーが便利さを実感中！📈\n\nあなたも知れば、生活が一変するかも⁉️ #ChatGPT #AI秘書 #時短術",
+      "length": 161
+    },
+    {
+      "index": 3,
+      "content": "🎮✨【セガが革新を加速！】✨🎮\n\n社内で実現した「ローカルLLM」の活用法が、ゲーム開発を劇的に効率化！🚀👾 林洋人氏と岳鳴涛氏が明かすこの新技術の導入で、開発時間が驚異の30%削減！？🤯\n\nゲームクリエイター必見の未来がここに！あなたのアイデアも次の大ヒットに繋がるかも…💡✨\n\n詳細はCEDEC2025で！#セガ #ゲーム開発 #AI革命",
+      "length": 171
+    },
+    {
+      "index": 4,
+      "content": "🚀AI時代でも「手を動かす」ことがカギ！🔑Python初心者が陥りがちな錯覚とは？🤔 \n\n生成AIの進化で学習は簡単になったけど、実は“実践”が不可欠なんです！✋💻ビープラウド社が教える新常識で、あなたのスキルを飛躍的に向上させるチャンス✨ \n\n今すぐ詳細をチェックして、未来のプログラマーに一歩近づこう！📈 #Python #AI時代 #プログラミング学習",
+      "length": 179
+    },
+    {
+      "index": 5,
+      "content": "🚨AIの未来が変わる！🚨 Anthropicが新たに開発した「監査エージェント」。これにより、Claude Opus 4の整合性問題を徹底的に検証可能に！🤖✨\n\n🔍予想外の結果が続出する中、私たちの生活にどのような影響を与えるのか？あなたもその恩恵を受けるかも！💡\n\nAIの透明性が向上すれば、安心してテクノロジーを利用できる未来が待っています。詳細は要チェック！👀\n\n#AI #テクノロジー #イノベーション",
+      "length": 205
+    }
+  ],
+  "notes": [
+    {
+      "index": 1,
+      "title": "Mixture-of-recursions delivers 2x faster inference—Here’s how to implement it",
+      "length": 1374
+    },
+    {
+      "index": 2,
+      "title": "【テンプレ付き】ChatGPTが「自分専用の秘書」に育つ“裏ワザ”…同じ指示はもう不要",
+      "length": 1310
+    },
+    {
+      "index": 3,
+      "title": "セガは社内でローカルLLMを活用、多数あるGPU搭載PC生かす",
+      "length": 1323
+    },
+    {
+      "index": 4,
+      "title": "AI時代も「手を動かす」重要性は変わらない、Python学習初心者が陥る錯覚",
+      "length": 1524
+    },
+    {
+      "index": 5,
+      "title": "Anthropic unveils ‘auditing agents’ to test for AI misalignment",
+      "length": 1281
+    }
+  ],
+  "clusters": [
+    {
+      "cluster_index": 1,
+      "articles_count": 1,
+      "main_article": {
+        "title": "Anthropic unveils new rate limits to curb Claude Code power users",
+        "link": "https://techcrunch.com/2025/07/28/anthropic-unveils-new-rate-limits-to-curb-claude-code-power-users/",
+        "summary": "新しいレート制限が、8月28日からAnthropicの月額20ドルのProプランおよび100ドル、200ドルのMaxプランの加入者に適用されることが発表されました。"
+      }
+    },
+    {
+      "cluster_index": 2,
+      "articles_count": 1,
+      "main_article": {
+        "title": "Chinese universities want students to use more AI, not less",
+        "link": "https://www.technologyreview.com/2025/07/28/1120747/chinese-universities-ai-use/",
+        "summary": "ロレイン・ヒーさん（24歳）は、2年前に課題にAIを使用しないよう指導されていた。当時、学生たちはChatGPTの国による制限を回避するために、中古市場からミラーサイト版を購入する必要があった。この使用は一般的だったが、容認されている程度で、しばしば問題視されていた。"
+      }
+    },
+    {
+      "cluster_index": 3,
+      "articles_count": 1,
+      "main_article": {
+        "title": "Anthropic throttles Claude rate limits, devs call foul",
+        "link": "https://venturebeat.com/ai/anthropic-throttles-claude-rate-limits-devs-call-foul/",
+        "summary": "Anthropicは、Claude Codeを24時間稼働させるユーザーを非難し、一部のユーザーに対して週ごとの利用制限を設けました。この措置に対し、ソーシャルメディア上で反発の声が上がっています。"
+      }
+    },
+    {
+      "cluster_index": 4,
+      "articles_count": 1,
+      "main_article": {
+        "title": "New AI architecture delivers 100x faster reasoning than LLMs with just 1,000 training examples",
+        "link": "https://venturebeat.com/ai/new-ai-architecture-delivers-100x-faster-reasoning-than-llms-with-just-1000-training-examples/",
+        "summary": "階層的推論モデル（HRM）は、複雑な推論タスクに対応しながら、大規模なAIモデルよりも小型で高速、かつデータ効率が良いという特長があります。"
+      }
+    },
+    {
+      "cluster_index": 5,
+      "articles_count": 1,
+      "main_article": {
+        "title": "CoSyn: The open-source tool that’s making GPT-4V-level vision AI accessible to everyone",
+        "link": "https://venturebeat.com/business/cosyn-the-open-source-tool-thats-making-gpt-4v-level-vision-ai-accessible-to-everyone/",
+        "summary": "ペンシルベニア大学とアレン人工知能研究所の研究者が、オープンソースのAIシステムがGPT-4VやGemini 1.5 Flashなどのプロプライエタリモデルの視覚理解能力に匹敵するかそれを超えることを可能にする革新的なツール「CoSyn」を開発しました。このツールは、オープンAIとクローズドAIの競争環境を変える可能性があります。"
+      }
+    }
+  ]
+}

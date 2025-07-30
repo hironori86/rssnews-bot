@@ -1,0 +1,169 @@
+name: Test Setup and Configuration
+
+on:
+  # 手動実行のみ
+  workflow_dispatch:
+    inputs:
+      test_type:
+        description: 'テストの種類'
+        required: true
+        default: 'basic'
+        type: choice
+        options:
+        - 'basic'        # 基本動作テスト
+        - 'rss'          # RSS取得テスト
+        - 'llm'          # LLM接続テスト
+        - 'notifications' # 通知テスト
+
+jobs:
+  test-configuration:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Test basic configuration
+      if: github.event.inputs.test_type == 'basic'
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        RSS_FEEDS: ${{ secrets.RSS_FEEDS }}
+        KEYWORDS: ${{ secrets.KEYWORDS }}
+      run: |
+        echo "🔧 基本設定をテストしています..."
+        
+        # 環境変数の確認
+        echo "✅ 環境変数チェック:"
+        echo "OPENAI_API_KEY: $(if [ -n "$OPENAI_API_KEY" ]; then echo "設定済み"; else echo "未設定"; fi)"
+        echo "RSS_FEEDS: $(if [ -n "$RSS_FEEDS" ]; then echo "設定済み ($RSS_FEEDS)"; else echo "未設定"; fi)"
+        echo "KEYWORDS: $(if [ -n "$KEYWORDS" ]; then echo "設定済み ($KEYWORDS)"; else echo "未設定"; fi)"
+        
+        # 設定ファイルの読み込みテスト
+        python -c "
+        from config import CONFIG
+        if CONFIG:
+            print('✅ 設定ファイルの読み込み: 成功')
+            print(f'RSS Feeds: {len(CONFIG.rss_feeds)}件')
+            print(f'Keywords: {len(CONFIG.keywords)}件')
+        else:
+            print('❌ 設定ファイルの読み込み: 失敗')
+            exit(1)
+        "
+    
+    - name: Test RSS feeds
+      if: github.event.inputs.test_type == 'rss'
+      env:
+        RSS_FEEDS: ${{ secrets.RSS_FEEDS }}
+        KEYWORDS: ${{ secrets.KEYWORDS }}
+      run: |
+        echo "📡 RSSフィードをテストしています..."
+        python -c "
+        from utils import rss
+        from config import CONFIG
+        
+        try:
+            articles = rss.fetch_articles(CONFIG.rss_feeds, days=1, keywords=CONFIG.keywords)
+            print(f'✅ RSS取得: 成功 ({len(articles)}件の記事を取得)')
+            
+            if articles:
+                print('📄 取得した記事の例:')
+                for i, article in enumerate(articles[:3], 1):
+                    print(f'{i}. {article.get(\"title\", \"タイトル不明\")}')
+            else:
+                print('⚠️  記事が取得されませんでした')
+        except Exception as e:
+            print(f'❌ RSS取得: 失敗 - {e}')
+            exit(1)
+        "
+    
+    - name: Test LLM connection
+      if: github.event.inputs.test_type == 'llm'
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      run: |
+        echo "🤖 LLM接続をテストしています..."
+        python -c "
+        from utils import llm as llm_module
+        from config import CONFIG
+        
+        try:
+            client = llm_module.LLMClient(api_key=CONFIG.openai_api_key)
+            test_summary = client.summarize('これはテスト用の記事です。AI技術の進歩について説明しています。', max_chars=50)
+            print(f'✅ LLM接続: 成功')
+            print(f'テスト要約: {test_summary}')
+        except Exception as e:
+            print(f'❌ LLM接続: 失敗 - {e}')
+            exit(1)
+        "
+    
+    - name: Test notifications
+      if: github.event.inputs.test_type == 'notifications'
+      env:
+        TEAM_WEBHOOK_URL: ${{ secrets.TEAM_WEBHOOK_URL }}
+        SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+        LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+      run: |
+        echo "📢 通知設定をテストしています..."
+        
+        # Teams
+        if [ -n "$TEAM_WEBHOOK_URL" ]; then
+          echo "✅ Teams Webhook: 設定済み"
+        else
+          echo "⚠️  Teams Webhook: 未設定"
+        fi
+        
+        # Email
+        if [ -n "$SMTP_SERVER" ]; then
+          echo "✅ Email (SMTP): 設定済み"
+        else
+          echo "⚠️  Email (SMTP): 未設定"
+        fi
+        
+        # LINE
+        if [ -n "$LINE_CHANNEL_ACCESS_TOKEN" ]; then
+          echo "✅ LINE Bot: 設定済み"
+        else
+          echo "⚠️  LINE Bot: 未設定"
+        fi
+    
+    - name: Generate test report
+      if: always()
+      run: |
+        echo "## 🧪 設定テスト結果" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### テスト種類" >> $GITHUB_STEP_SUMMARY
+        echo "${{ github.event.inputs.test_type }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 実行時刻" >> $GITHUB_STEP_SUMMARY
+        echo "- UTC: $(date -u)" >> $GITHUB_STEP_SUMMARY
+        echo "- JST: $(TZ=Asia/Tokyo date)" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 次のステップ" >> $GITHUB_STEP_SUMMARY
+        echo "テストが成功した場合は、日次実行ワークフローを有効にしてください。" >> $GITHUB_STEP_SUMMARY
+        echo "失敗した場合は、GitHub Secretsの設定を確認してください。" >> $GITHUB_STEP_SUMMARY
+    
+    - name: Create test artifacts
+      run: |
+        mkdir -p test-results
+        echo "Test Type: ${{ github.event.inputs.test_type }}" > test-results/test-info.txt
+        echo "Date: $(date)" >> test-results/test-info.txt
+        echo "Status: $(if [ $? -eq 0 ]; then echo 'SUCCESS'; else echo 'FAILED'; fi)" >> test-results/test-info.txt
+    
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results-${{ github.event.inputs.test_type }}-${{ github.run_number }}
+        path: test-results/
+        retention-days: 7

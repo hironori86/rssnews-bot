@@ -1,0 +1,73 @@
+{
+  "generated_at": "2025-07-30T06:17:23.467856",
+  "total_articles": 23,
+  "total_clusters": 23,
+  "tweets_count": 1,
+  "notes_count": 1,
+  "tweets": [
+    {
+      "index": 1,
+      "content": "🌟今週のDXニュース！🌟 \n注目トピックをチェック！🔍 \n- 2倍速の推論を実現する新手法「Mixture-of-recursions」の実装方法を解説！ \n- AnthropicがAIの整合性を試験する「監査エージェント」を発表！ \n- 新オープンソース「Qwen3-235B-A22B-Thinking-2507」が、OpenAIやGeminiの推論モデルを上回る！ \n毎週見逃せない情報が盛りだくさん！詳細はリンクで確認✨ \n#DX週報 #AIニュース",
+      "length": 229
+    }
+  ],
+  "notes": [
+    {
+      "index": 1,
+      "title": "今週のDXニュースまとめ(2025/07/23〜2025/07/30)",
+      "length": 1366
+    }
+  ],
+  "clusters": [
+    {
+      "cluster_index": 1,
+      "articles_count": 1,
+      "main_article": {
+        "title": "OpenAI launches Study Mode in ChatGPT",
+        "link": "https://techcrunch.com/2025/07/29/openai-launches-study-mode-in-chatgpt/",
+        "summary": "OpenAIのスタディモードは、学生が単に答えを得るのではなく、自らの批判的思考能力を育むことを目的としています。この機能は、学習者が情報を分析し、考察する力を強化するためのサポートを提供します。"
+      }
+    },
+    {
+      "cluster_index": 2,
+      "articles_count": 1,
+      "main_article": {
+        "title": "OpenAI is launching a version of ChatGPT for college students",
+        "link": "https://www.technologyreview.com/2025/07/29/1120801/openai-is-launching-a-version-of-chatgpt-for-college-students/",
+        "summary": "OpenAIは、大学生向けの「Study Mode」を発表しました。この新しいChatGPTは、単なる情報検索ツールではなく、親しみやすいチューターとして機能することを目指しています。これは、9月の新学期に向けてAIを教育現場により浸透させるための取り組みの一環です。デモンストレーションも行われる予定です。"
+      }
+    },
+    {
+      "cluster_index": 3,
+      "articles_count": 1,
+      "main_article": {
+        "title": "Chinese universities want students to use more AI, not less",
+        "link": "https://www.technologyreview.com/2025/07/28/1120747/chinese-universities-ai-use/",
+        "summary": "ロレイン・ヒーさん（24歳）は、2年前に課題にAIを使用しないよう指示されていました。当時、学生たちはChatGPTの国によるブロックを回避するために、中古市場からミラーサイト版を購入していました。この利用は一般的でしたが、許容されることはあっても、しばしば批判されていました。"
+      }
+    },
+    {
+      "cluster_index": 4,
+      "articles_count": 1,
+      "main_article": {
+        "title": "ChatGPT just got smarter: OpenAI’s Study Mode helps students learn step-by-step",
+        "link": "https://venturebeat.com/ai/chatgpt-just-got-smarter-openais-study-mode-helps-students-learn-step-by-step/",
+        "summary": "OpenAIはChatGPTの「学習モード」を発表しました。この新機能により、AIは単なる回答エンジンから脱却し、学生が問題を段階的に解決できるように導くソクラテス式のチューターとして機能します。直接的な解答を提供するのではなく、学生が自ら考える手助けをすることを目的としています。"
+      }
+    },
+    {
+      "cluster_index": 5,
+      "articles_count": 1,
+      "main_article": {
+        "title": "Anthropic throttles Claude rate limits, devs call foul",
+        "link": "https://venturebeat.com/ai/anthropic-throttles-claude-rate-limits-devs-call-foul/",
+        "summary": "Anthropicは、Claude Codeを24時間稼働させるユーザーを非難し、一部のClaudeユーザーに対して週ごとの利用制限を導入しました。この措置に対し、ソーシャルメディア上で反発の声が上がっています。"
+      }
+    }
+  ],
+  "categorized": {
+    "最新技術動向": 10,
+    "導入・活用事例": 10,
+    "その他": 3
+  }
+}

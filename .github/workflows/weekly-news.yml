@@ -1,0 +1,120 @@
+name: Weekly DX News Summary
+
+on:
+  # 毎週日曜日の夜10時（JST）に実行 = UTC 13時（日曜日）
+  schedule:
+    - cron: '0 13 * * 0'
+  
+  # 手動実行も可能
+  workflow_dispatch:
+    inputs:
+      days:
+        description: '対象とする日数'
+        required: false
+        default: '7'
+        type: string
+
+jobs:
+  generate-weekly-summary:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Download recent daily artifacts
+      uses: actions/download-artifact@v4
+      with:
+        # 過去7回分の日次実行結果をダウンロード
+        pattern: daily-news-*
+        path: downloaded-artifacts/
+        merge-multiple: true
+      continue-on-error: true
+    
+    - name: Merge downloaded artifacts with outputs
+      run: |
+        mkdir -p outputs
+        if [ -d "downloaded-artifacts" ]; then
+          echo "📥 ダウンロードしたアーティファクトをマージしています..."
+          find downloaded-artifacts -name "*.json" -o -name "*.md" -o -name "*.txt" | head -10
+          cp -r downloaded-artifacts/* outputs/ 2>/dev/null || true
+        fi
+    
+    - name: Generate weekly summary
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        RSS_FEEDS: ${{ secrets.RSS_FEEDS }}
+        KEYWORDS: ${{ secrets.KEYWORDS }}
+      run: |
+        DAYS="${{ github.event.inputs.days || '7' }}"
+        echo "📊 過去${DAYS}日分のデータから週間ニュースを生成します"
+        python weekly_generator.py --days "$DAYS" --output-dir outputs
+    
+    - name: Check weekly output
+      run: |
+        echo "📁 週間ニュース生成結果:"
+        find outputs/weekly -type f -name "*.txt" -o -name "*.md" -o -name "*.json" 2>/dev/null | head -20
+        
+        echo ""
+        echo "📊 生成された週間コンテンツ:"
+        echo "週間ツイート案: $(find outputs/weekly -name "tweet_*.txt" 2>/dev/null | wc -l)件"
+        echo "週間note記事案: $(find outputs/weekly -name "note_*.md" 2>/dev/null | wc -l)件"
+    
+    - name: Upload weekly summary artifacts
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: weekly-summary-${{ github.run_number }}
+        path: outputs/weekly/
+        retention-days: 90
+    
+    - name: Upload all outputs for debugging
+      uses: actions/upload-artifact@v4
+      if: failure()
+      with:
+        name: weekly-debug-${{ github.run_number }}
+        path: |
+          outputs/
+          *.log
+        retention-days: 7
+    
+    - name: Create weekly summary
+      if: always()
+      run: |
+        echo "## 📰 週間ニュースサマリー生成結果" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 生成されたコンテンツ" >> $GITHUB_STEP_SUMMARY
+        echo "- 週間ツイート案: $(find outputs/weekly -name "tweet_*.txt" 2>/dev/null | wc -l)件" >> $GITHUB_STEP_SUMMARY
+        echo "- 週間note記事案: $(find outputs/weekly -name "note_*.md" 2>/dev/null | wc -l)件" >> $GITHUB_STEP_SUMMARY
+        
+        # 統合された記事数を取得
+        TOTAL_ARTICLES=$(find outputs/weekly -name "summary.json" -exec jq '.total_articles' {} \; 2>/dev/null | head -1 || echo "0")
+        echo "- 統合記事数: ${TOTAL_ARTICLES}件" >> $GITHUB_STEP_SUMMARY
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 実行情報" >> $GITHUB_STEP_SUMMARY
+        echo "- 対象日数: ${{ github.event.inputs.days || '7' }}日" >> $GITHUB_STEP_SUMMARY
+        echo "- 実行時刻（UTC）: $(date -u)" >> $GITHUB_STEP_SUMMARY
+        echo "- 実行時刻（JST）: $(TZ=Asia/Tokyo date)" >> $GITHUB_STEP_SUMMARY
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### ダウンロード" >> $GITHUB_STEP_SUMMARY
+        echo "週間サマリーファイルは Artifacts からダウンロードできます。" >> $GITHUB_STEP_SUMMARY
+        echo "生成されたnote記事は、そのままnoteにコピー&ペーストできます。" >> $GITHUB_STEP_SUMMARY
+    
+    - name: Notify completion
+      if: success()
+      run: |
+        echo "✅ 週間ニュースサマリーの生成が完了しました！"
+        echo "📥 Artifacts セクションから週間コンテンツをダウンロードしてご利用ください。"

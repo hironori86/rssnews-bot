@@ -1,0 +1,11 @@
+{
+  "date": "20250730",
+  "processed_at": "2025-07-30T08:02:45.139216",
+  "data_path": "20250730_080245\\raw_data\\articles.json",
+  "total_articles": 14,
+  "categories": {
+    "最新技術動向": 7,
+    "導入・活用事例": 2,
+    "その他": 5
+  }
+}

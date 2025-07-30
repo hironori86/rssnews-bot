@@ -1,0 +1,73 @@
+{
+  "generated_at": "2025-07-30T07:39:47.925456",
+  "total_articles": 31,
+  "total_clusters": 31,
+  "tweets_count": 1,
+  "notes_count": 1,
+  "tweets": [
+    {
+      "index": 1,
+      "content": "今週のDXニュース！📈✨ 31件の注目記事から、特に気になるトピックをピックアップしました。\n\n🔍 Mixture-of-recursionsで推論が2倍速に！実装方法も解説。\n💰 AnthropicがAIエージェント保険のために1500万ドルを調達！\n🔎 AIの不整合を検証する「監査エージェント」を発表！\n\n次世代のDXを先取りするために、今週のレポートは必見です！詳細はリンクをチェック！👉 [リンク]\n\n#DX週報 #AIニュース",
+      "length": 219
+    }
+  ],
+  "notes": [
+    {
+      "index": 1,
+      "title": "今週のDXニュースまとめ(2025/07/23〜2025/07/30)",
+      "length": 6197
+    }
+  ],
+  "clusters": [
+    {
+      "cluster_index": 1,
+      "articles_count": 1,
+      "main_article": {
+        "title": "Nvidia AI chip challenger Groq said to be nearing new fundraising at $6B valuation",
+        "link": "https://techcrunch.com/2025/07/29/nvidia-ai-chip-challenger-groq-said-to-be-nearing-new-fundraising-at-6b-valuation/",
+        "summary": "新たな資金調達契約が成立すれば、Groqの評価額は約9ヶ月で倍増する見込みです。"
+      }
+    },
+    {
+      "cluster_index": 2,
+      "articles_count": 1,
+      "main_article": {
+        "title": "Anthropic reportedly nears $170B valuation with potential $5B round",
+        "link": "https://techcrunch.com/2025/07/29/anthropic-reportedly-nears-170b-valuation-with-potential-5b-round/",
+        "summary": "新たな資金調達ラウンドがIconiq Capitalによって主導されており、共同リード投資家が参加する可能性もある。"
+      }
+    },
+    {
+      "cluster_index": 3,
+      "articles_count": 1,
+      "main_article": {
+        "title": "OpenAI launches Study Mode in ChatGPT",
+        "link": "https://techcrunch.com/2025/07/29/openai-launches-study-mode-in-chatgpt/",
+        "summary": "OpenAIのスタディモードは、学生が単に答えを得るのではなく、自らの批判的思考スキルを育成することを目的としています。この機能は、学習者が問題を深く考え、自分の意見を形成する手助けをすることを重視しています。"
+      }
+    },
+    {
+      "cluster_index": 4,
+      "articles_count": 1,
+      "main_article": {
+        "title": "OpenAI is launching a version of ChatGPT for college students",
+        "link": "https://www.technologyreview.com/2025/07/29/1120801/openai-is-launching-a-version-of-chatgpt-for-college-students/",
+        "summary": "OpenAIは、大学生向けの「Study Mode」を発表しました。これは、従来の検索ツールのようではなく、親しみやすい常駐のチューターとして機能することを目指しています。この取り組みは、9月の新学期に向けてAIを教育現場により浸透させるための一環です。デモンストレーションも行われる予定です。"
+      }
+    },
+    {
+      "cluster_index": 5,
+      "articles_count": 1,
+      "main_article": {
+        "title": "Chinese universities want students to use more AI, not less",
+        "link": "https://www.technologyreview.com/2025/07/28/1120747/chinese-universities-ai-use/",
+        "summary": "ロレイン・ハーさん（24歳）は、2年前に課題にAIを使用しないよう指示されていました。当時、ChatGPTの国によるブロックを回避するため、学生たちは中古市場からミラーサイト版を購入する必要がありました。その使用は一般的でしたが、容認されることは少なく、むしろ問題視されていました。"
+      }
+    }
+  ],
+  "categorized": {
+    "最新技術動向": 10,
+    "導入・活用事例": 13,
+    "その他": 8
+  }
+}
